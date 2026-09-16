@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 868" role="img" aria-labelledby="title desc">
+  <title id="title">Força dos números</title>
+  <desc id="desc">Composição abstrata brutalista com números, linhas e formas geométricas.</desc>
+  <rect width="700" height="868" fill="#F4A300"/>
+  <path d="M0 86H700M0 260H700M0 434H700M0 608H700M0 782H700M86 0V868M260 0V868M434 0V868M608 0V868" stroke="#111" stroke-width="9" opacity=".18"/>
+  <rect x="70" y="88" width="500" height="590" fill="#FFFDF7" stroke="#111" stroke-width="18" transform="rotate(-4 320 383)"/>
+  <circle cx="508" cy="266" r="115" fill="#E63946" stroke="#111" stroke-width="18"/>
+  <path d="M130 580 300 340l95 126 126-190" fill="none" stroke="#1D3557" stroke-width="34" stroke-linejoin="bevel"/>
+  <text x="100" y="230" fill="#111" font-family="Impact,Arial Black,sans-serif" font-size="150">01</text>
+  <text x="105" y="760" fill="#111" font-family="Impact,Arial Black,sans-serif" font-size="72">PENSAR</text>
+</svg>

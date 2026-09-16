@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 868" role="img" aria-labelledby="title desc">
+  <title id="title">Criatividade em ação</title>
+  <desc id="desc">Composição abstrata brutalista com formas coloridas e materiais artísticos.</desc>
+  <rect width="700" height="868" fill="#E63946"/>
+  <path d="m92 100 500 40-48 590-500-40z" fill="#FFFDF7" stroke="#111" stroke-width="18"/>
+  <circle cx="265" cy="324" r="112" fill="#F4A300" stroke="#111" stroke-width="18"/>
+  <rect x="365" y="245" width="150" height="210" fill="#2A9D8F" stroke="#111" stroke-width="18" transform="rotate(12 440 350)"/>
+  <path d="m132 540 150-92 138 118 102-86 62 166-435-35z" fill="#8E44AD" stroke="#111" stroke-width="18" stroke-linejoin="bevel"/>
+  <path d="M555 92 435 584" stroke="#1D3557" stroke-width="34"/>
+  <path d="m423 628-12-80 76 19z" fill="#111"/>
+  <text x="82" y="785" fill="#111" font-family="Impact,Arial Black,sans-serif" font-size="72">CRIAR!</text>
+</svg>
