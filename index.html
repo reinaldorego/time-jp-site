@@ -9,6 +9,9 @@
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icon-192.png">
   <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --paper: #edeae0;
@@ -19,6 +22,9 @@
       --yellow: #f4a300;
       --muted: #555555;
       --shadow: 8px 8px 0 var(--ink);
+      --display: "Baloo 2", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      --body: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --mono: "JetBrains Mono", "Courier New", monospace;
     }
 
     * { box-sizing: border-box; }
@@ -38,7 +44,9 @@
       background-position: -1px -1px;
       background-size: 28px 28px;
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: var(--body);
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
     }
 
     button,
@@ -82,6 +90,7 @@
       color: var(--ink);
       padding: 9px 16px;
       text-align: center;
+      font-family: var(--mono);
       font-size: 0.78rem;
       font-weight: 900;
       letter-spacing: 0.05em;
@@ -100,13 +109,23 @@
       padding: clamp(18px, 3vw, 28px) max(20px, calc((100vw - 1100px) / 2)) clamp(24px, 4vw, 42px);
     }
 
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(237, 234, 224, 0.9) 1.3px, transparent 1.5px);
+      background-size: 16px 16px;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
     .hero::after {
       content: "JP";
       position: absolute;
       right: -0.04em;
       bottom: -0.27em;
       color: transparent;
-      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-family: var(--display);
       font-size: clamp(9rem, 30vw, 22rem);
       line-height: 1;
       -webkit-text-stroke: 2px rgba(237, 234, 224, 0.13);
@@ -145,15 +164,49 @@
       margin-bottom: 22px;
     }
 
+    .hero-top-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 0 0 auto;
+    }
+
     .hero-school {
       margin: 0;
       color: var(--yellow);
-      font-size: 0.75rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
       font-weight: 900;
       letter-spacing: 0.14em;
       line-height: 1.25;
       max-width: 38ch;
       text-transform: uppercase;
+    }
+
+    .hero-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 3px solid var(--paper);
+      background: var(--yellow);
+      color: var(--ink);
+      box-shadow: 4px 4px 0 var(--red);
+      padding: 7px 10px;
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .status-dot {
+      display: block;
+      width: 8px;
+      height: 8px;
+      border: 2px solid var(--ink);
+      background: var(--red);
     }
 
     .logo-badge {
@@ -182,6 +235,7 @@
       background: var(--red);
       color: white;
       padding: 5px 9px;
+      font-family: var(--mono);
       font-size: 0.7rem;
       font-weight: 900;
       letter-spacing: 0.08em;
@@ -191,7 +245,7 @@
     .hero-title {
       max-width: 10ch;
       margin: 0;
-      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-family: var(--display);
       font-size: clamp(3rem, 9vw, 7.4rem);
       font-weight: 900;
       letter-spacing: -0.01em;
@@ -204,7 +258,7 @@
     .hero-signature {
       margin: 16px 0 0;
       color: var(--yellow);
-      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-family: var(--display);
       font-size: clamp(1.25rem, 3vw, 2rem);
       letter-spacing: 0.03em;
       text-transform: uppercase;
@@ -222,6 +276,30 @@
       font-weight: 700;
       line-height: 1.55;
     }
+
+    .hero-principles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .hero-principles span {
+      border: 2px solid var(--ink);
+      background: var(--paper-light);
+      color: var(--ink);
+      box-shadow: 3px 3px 0 var(--red);
+      padding: 5px 8px 4px;
+      font-family: var(--mono);
+      font-size: 0.61rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .hero-principles span:nth-child(2) { transform: rotate(1deg); }
+    .hero-principles span:nth-child(3) { transform: rotate(-1deg); }
 
     .hero-stats {
       display: flex;
@@ -241,7 +319,7 @@
     .stat-number {
       display: block;
       color: var(--red);
-      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-family: var(--display);
       font-size: 1.7rem;
       line-height: 1;
     }
@@ -249,6 +327,7 @@
     .stat-label {
       display: block;
       margin-top: 4px;
+      font-family: var(--mono);
       font-size: 0.68rem;
       font-weight: 800;
       letter-spacing: 0.05em;
@@ -266,6 +345,7 @@
       color: var(--ink);
       box-shadow: 5px 5px 0 var(--red);
       padding: 10px 14px;
+      font-family: var(--display);
       font-size: 0.75rem;
       font-weight: 900;
       letter-spacing: 0.05em;
@@ -287,7 +367,7 @@
 
     .section-title h2 {
       margin: 0;
-      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-family: var(--display);
       font-size: clamp(1.7rem, 5vw, 2.4rem);
       letter-spacing: 0.02em;
       line-height: 1;
@@ -327,6 +407,7 @@
       color: var(--ink);
       box-shadow: 4px 4px 0 var(--ink);
       padding: 8px 13px;
+      font-family: var(--mono);
       font-size: 0.75rem;
       font-weight: 900;
       letter-spacing: 0.04em;
@@ -366,6 +447,7 @@
     .result-count {
       min-width: 6.5rem;
       margin: 0;
+      font-family: var(--mono);
       font-size: 0.75rem;
       font-weight: 900;
       text-align: right;
@@ -468,6 +550,7 @@
       border: 0;
       padding: 4px 8px;
       color: white;
+      font-family: var(--mono);
       font-size: 0.62rem;
       font-weight: 900;
       letter-spacing: 0.05em;
@@ -478,7 +561,7 @@
 
     .person-name {
       margin: 0 0 4px;
-      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-family: var(--display);
       font-size: 1.3rem;
       line-height: 1;
       text-transform: uppercase;
@@ -494,6 +577,7 @@
     .card-hint {
       margin: 7px 0 0;
       color: var(--red);
+      font-family: var(--mono);
       font-size: 0.65rem;
       font-weight: 900;
       letter-spacing: 0.03em;
@@ -503,7 +587,7 @@
     .hero-name {
       margin: 0 0 8px;
       color: var(--blue);
-      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-family: var(--display);
       font-size: 1.55rem;
       line-height: 1;
       text-transform: uppercase;
@@ -514,6 +598,7 @@
     .card-back dt {
       margin-top: 11px;
       color: var(--red);
+      font-family: var(--mono);
       font-size: 0.65rem;
       font-weight: 900;
       letter-spacing: 0.07em;
@@ -596,6 +681,10 @@
       .hero-title { max-width: 9ch; }
     }
 
+    @media (max-width: 700px) {
+      .hero-status { display: none; }
+    }
+
     @media (max-width: 520px) {
       .search-row { grid-template-columns: 1fr; }
       .result-count { text-align: left; }
@@ -644,6 +733,16 @@
         padding: 11px 13px;
         font-size: 0.88rem;
         line-height: 1.4;
+      }
+
+      .hero-principles {
+        gap: 6px;
+        margin-top: 11px;
+      }
+
+      .hero-principles span {
+        padding: 5px 7px 4px;
+        font-size: 0.55rem;
       }
 
       .hero-stats {
@@ -807,8 +906,11 @@
   <header class="hero">
     <div class="hero-top">
       <p class="hero-school" id="hero-school"></p>
-      <div class="logo-badge">
-        <img src="img/logo-jp.png" alt="Logo da Escola Jarbas Passarinho" width="48" height="48">
+      <div class="hero-top-right">
+        <span class="hero-status"><span class="status-dot" aria-hidden="true"></span><span id="hero-status-count">48 retratos</span></span>
+        <div class="logo-badge">
+          <img src="img/logo-jp.png" alt="Logo da Escola Jarbas Passarinho" width="48" height="48">
+        </div>
       </div>
     </div>
     <div class="hero-content">
@@ -819,6 +921,11 @@
       </div>
       <div class="hero-pitch">
         <p class="hero-story" id="hero-story"></p>
+        <div class="hero-principles" aria-label="Princípios do TIME JP">
+          <span>Ensina</span>
+          <span>Acolhe</span>
+          <span>Faz acontecer</span>
+        </div>
         <div class="hero-stats" id="hero-stats" aria-label="Números da escola"></div>
         <a class="hero-cta" href="#conteudo">Conheça o time <span aria-hidden="true">↓</span></a>
       </div>
@@ -912,6 +1019,7 @@
       document.getElementById("hero-title").textContent = ESCOLA_INFO.chamada;
       document.getElementById("hero-signature").textContent = ESCOLA_INFO.assinatura;
       document.getElementById("hero-story").textContent = ESCOLA_INFO.historia;
+      document.getElementById("hero-status-count").textContent = EQUIPE.length + " retratos";
       document.getElementById("last-update").textContent =
         "Homologação atualizada em " + SITE_CONFIG.ultimaAtualizacao + ".";
 
