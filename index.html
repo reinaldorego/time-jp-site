@@ -30,6 +30,7 @@
 
     body {
       margin: 0;
+      overflow-x: hidden;
       background-color: var(--paper);
       background-image:
         linear-gradient(rgba(17, 17, 17, 0.12) 1px, transparent 1px),
@@ -84,6 +85,7 @@
       font-size: 0.78rem;
       font-weight: 900;
       letter-spacing: 0.05em;
+      line-height: 1.25;
       text-transform: uppercase;
     }
 
@@ -95,7 +97,7 @@
       border-bottom: 7px solid var(--red);
       background: var(--ink);
       color: var(--paper);
-      padding: 24px max(20px, calc((100vw - 1100px) / 2)) 30px;
+      padding: clamp(18px, 3vw, 28px) max(20px, calc((100vw - 1100px) / 2)) clamp(24px, 4vw, 42px);
     }
 
     .hero::after {
@@ -119,6 +121,22 @@
       margin-inline: auto;
     }
 
+    .hero-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(250px, 0.85fr);
+      align-items: end;
+      gap: clamp(24px, 5vw, 64px);
+    }
+
+    .hero-copy,
+    .hero-pitch { min-width: 0; }
+
+    .hero-pitch {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
     .hero-top {
       display: flex;
       align-items: center;
@@ -133,6 +151,8 @@
       font-size: 0.75rem;
       font-weight: 900;
       letter-spacing: 0.14em;
+      line-height: 1.25;
+      max-width: 38ch;
       text-transform: uppercase;
     }
 
@@ -169,19 +189,20 @@
     }
 
     .hero-title {
-      max-width: 930px;
+      max-width: 10ch;
       margin: 0;
       font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-      font-size: clamp(3rem, 11vw, 7.4rem);
+      font-size: clamp(3rem, 9vw, 7.4rem);
       font-weight: 900;
-      letter-spacing: 0.01em;
-      line-height: 0.83;
+      letter-spacing: -0.01em;
+      line-height: 0.88;
+      overflow-wrap: anywhere;
       text-transform: uppercase;
       text-wrap: balance;
     }
 
     .hero-signature {
-      margin: 20px 0 0;
+      margin: 16px 0 0;
       color: var(--yellow);
       font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
       font-size: clamp(1.25rem, 3vw, 2rem);
@@ -190,8 +211,8 @@
     }
 
     .hero-story {
-      max-width: 690px;
-      margin: 15px 0 0;
+      max-width: none;
+      margin: 0;
       border: 4px solid var(--red);
       background: var(--paper);
       color: var(--ink);
@@ -206,7 +227,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 22px;
+      margin-top: 16px;
     }
 
     .hero-stats:empty { display: none; }
@@ -234,10 +255,31 @@
       text-transform: uppercase;
     }
 
+    .hero-cta {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+      border: 3px solid var(--paper);
+      background: var(--yellow);
+      color: var(--ink);
+      box-shadow: 5px 5px 0 var(--red);
+      padding: 10px 14px;
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .hero-cta:hover { background: var(--paper); }
+
     .section-title {
       display: flex;
       max-width: 1100px;
       align-items: center;
+      flex-wrap: wrap;
       gap: 14px;
       margin: 30px auto 18px;
       padding: 0 16px;
@@ -248,12 +290,14 @@
       font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
       font-size: clamp(1.7rem, 5vw, 2.4rem);
       letter-spacing: 0.02em;
+      line-height: 1;
       text-transform: uppercase;
-      white-space: nowrap;
     }
 
     .section-line {
-      width: 100%;
+      width: auto;
+      flex: 1 1 120px;
+      min-width: 80px;
       height: 5px;
       background: var(--ink);
     }
@@ -270,11 +314,9 @@
 
     .filters {
       display: flex;
+      flex-wrap: wrap;
       gap: 9px;
-      overflow-x: auto;
-      padding: 0 4px 8px 0;
-      scrollbar-color: var(--ink) var(--paper);
-      scrollbar-width: thin;
+      padding: 0 4px 2px 0;
     }
 
     .chip {
@@ -345,7 +387,7 @@
     .card-slot {
       position: relative;
       min-width: 0;
-      aspect-ratio: 3 / 4.25;
+      aspect-ratio: 3 / 4.9;
       perspective: 1400px;
     }
 
@@ -357,6 +399,8 @@
     }
 
     .card-slot.is-flipped .card-visual { transform: rotateY(180deg); }
+
+    .card-slot.is-flipped { z-index: 5; }
 
     .card-face {
       position: absolute;
@@ -372,8 +416,10 @@
 
     .card-back {
       transform: rotateY(180deg);
-      justify-content: center;
+      justify-content: flex-start;
+      overflow-y: auto;
       padding: 18px;
+      scrollbar-width: thin;
     }
 
     .card-action {
@@ -408,10 +454,18 @@
       object-fit: cover;
     }
 
+    .category-bar {
+      display: flex;
+      min-height: 31px;
+      align-items: stretch;
+      border-bottom: 4px solid var(--ink);
+      background: var(--ink);
+    }
+
     .category-tag {
-      position: absolute;
-      left: 8px;
-      border: 2px solid var(--ink);
+      display: flex;
+      align-items: center;
+      border: 0;
       padding: 4px 8px;
       color: white;
       font-size: 0.62rem;
@@ -419,8 +473,6 @@
       letter-spacing: 0.05em;
       text-transform: uppercase;
     }
-
-    .category-tag { top: 8px; }
 
     .card-info { padding: 11px 13px 13px; }
 
@@ -468,11 +520,14 @@
       text-transform: uppercase;
     }
 
+    .card-back dt:first-child { margin-top: 0; }
+
     .card-back dd {
       margin: 3px 0 0;
       font-size: 0.88rem;
       font-weight: 700;
       line-height: 1.35;
+      overflow-wrap: anywhere;
     }
 
     .person-quote {
@@ -532,11 +587,185 @@
       .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
 
+    @media (max-width: 760px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .hero-title { max-width: 9ch; }
+    }
+
     @media (max-width: 520px) {
       .search-row { grid-template-columns: 1fr; }
       .result-count { text-align: left; }
-      .hero { padding-top: 18px; }
-      .hero-title { font-size: clamp(2.8rem, 17vw, 5rem); }
+      .demo-banner {
+        padding: 8px 12px;
+        font-size: 0.66rem;
+      }
+
+      .hero {
+        padding: 16px 16px 25px;
+      }
+
+      .hero-top {
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .hero-school {
+        max-width: 29ch;
+        font-size: 0.64rem;
+        letter-spacing: 0.1em;
+      }
+
+      .logo-badge {
+        width: 48px;
+        height: 48px;
+        border-width: 3px;
+        box-shadow: 4px 4px 0 var(--red);
+        padding: 4px;
+      }
+
+      .hero-content { gap: 14px; }
+      .hero-title {
+        max-width: 9ch;
+        font-size: clamp(3rem, 14vw, 5.4rem);
+        line-height: 0.88;
+      }
+
+      .hero-signature {
+        margin-top: 13px;
+        font-size: clamp(1rem, 5.8vw, 1.4rem);
+      }
+
+      .hero-story {
+        box-shadow: 5px 5px 0 var(--red);
+        padding: 11px 13px;
+        font-size: 0.88rem;
+        line-height: 1.4;
+      }
+
+      .hero-stats {
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .stat {
+        min-width: 0;
+        flex: 1 1 125px;
+        padding: 8px 10px;
+      }
+
+      .stat-number { font-size: 1.55rem; }
+      .stat-label { font-size: 0.6rem; }
+
+      .hero-cta {
+        margin-top: 14px;
+        padding: 9px 12px;
+        font-size: 0.7rem;
+      }
+
+      .section-title {
+        align-items: flex-end;
+        gap: 10px;
+        margin: 22px auto 14px;
+      }
+
+      .section-title h2 {
+        font-size: clamp(1.5rem, 9vw, 2.15rem);
+        line-height: 0.95;
+      }
+
+      .section-line {
+        min-width: 26px;
+        height: 4px;
+        margin-bottom: 0.22em;
+      }
+
+      .toolbar { padding: 10px 16px; }
+      .filters { gap: 7px; }
+
+      .chip {
+        border-width: 2px;
+        box-shadow: 3px 3px 0 var(--ink);
+        padding: 7px 9px;
+        font-size: 0.68rem;
+      }
+
+      .search-row {
+        gap: 7px;
+        margin-top: 9px;
+      }
+
+      .search-input {
+        padding: 10px;
+        font-size: 0.95rem;
+      }
+
+      .result-count { font-size: 0.7rem; }
+
+      main { padding: 18px 16px 48px; }
+      .grid { gap: 20px 14px; }
+
+      .card-slot { aspect-ratio: 3 / 5.65; }
+
+      .card-face {
+        border-width: 3px;
+        box-shadow: 6px 6px 0 var(--ink);
+      }
+
+      .category-bar {
+        min-height: 28px;
+        border-bottom-width: 3px;
+      }
+
+      .category-tag {
+        padding: 6px 7px 5px;
+        font-size: 0.54rem;
+      }
+
+      .photo-wrap { border-bottom-width: 3px; }
+      .card-info { padding: 9px 10px 11px; }
+
+      .person-name {
+        font-size: 1.05rem;
+        line-height: 1.02;
+      }
+
+      .person-role {
+        font-size: 0.68rem;
+        line-height: 1.2;
+      }
+
+      .card-hint {
+        margin-top: 6px;
+        font-size: 0.57rem;
+      }
+
+      .card-back { padding: 12px 11px; }
+      .hero-name {
+        margin-bottom: 5px;
+        font-size: 1.05rem;
+        line-height: 1.05;
+      }
+
+      .card-back dt {
+        margin-top: 8px;
+        font-size: 0.55rem;
+      }
+
+      .card-back dd {
+        font-size: 0.69rem;
+        line-height: 1.25;
+      }
+
+      .person-quote {
+        margin-top: 10px;
+        padding-top: 8px;
+        font-size: 0.68rem;
+        line-height: 1.25;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -583,11 +812,16 @@
       </div>
     </div>
     <div class="hero-content">
-      <p class="eyebrow">TIME JP</p>
-      <h1 class="hero-title" id="hero-title"></h1>
-      <p class="hero-signature" id="hero-signature"></p>
-      <p class="hero-story" id="hero-story"></p>
-      <div class="hero-stats" id="hero-stats" aria-label="Números da escola"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">TIME JP</p>
+        <h1 class="hero-title" id="hero-title"></h1>
+        <p class="hero-signature" id="hero-signature"></p>
+      </div>
+      <div class="hero-pitch">
+        <p class="hero-story" id="hero-story"></p>
+        <div class="hero-stats" id="hero-stats" aria-label="Números da escola"></div>
+        <a class="hero-cta" href="#conteudo">Conheça o time <span aria-hidden="true">↓</span></a>
+      </div>
     </div>
   </header>
 
@@ -732,6 +966,7 @@
 
     function cardFront(person) {
       const front = createElement("div", "card-face card-front");
+      const categoryBar = createElement("div", "category-bar");
       const photoWrap = createElement("div", "photo-wrap");
       const image = document.createElement("img");
       image.src = person.foto;
@@ -741,7 +976,9 @@
 
       const categoryTag = createElement("span", "category-tag", categoryName(person.categoria));
       categoryTag.style.backgroundColor = categoryColor(person.categoria);
-      photoWrap.append(image, categoryTag);
+      categoryTag.style.color = person.categoria === "copa" ? "var(--ink)" : "white";
+      categoryBar.appendChild(categoryTag);
+      photoWrap.appendChild(image);
 
       const info = createElement("div", "card-info");
       info.append(
@@ -749,7 +986,7 @@
         createElement("p", "person-role", person.funcao),
         createElement("p", "card-hint", "Ver contribuição →")
       );
-      front.append(photoWrap, info);
+      front.append(categoryBar, photoWrap, info);
       return front;
     }
 
