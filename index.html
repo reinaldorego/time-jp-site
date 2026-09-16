@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="TIME JP — uma homenagem aos profissionais que fazem a Escola Jarbas Passarinho acontecer.">
-  <meta name="theme-color" content="#111111">
+  <meta name="theme-color" content="#e42320">
   <title>TIME JP — Heróis que fazem a escola acontecer</title>
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icon-192.png">
@@ -18,6 +18,7 @@
       --paper-light: #fffdf7;
       --ink: #111111;
       --red: #e63946;
+      --red-hero: #e42320;
       --blue: #1d3557;
       --yellow: #f4a300;
       --muted: #555555;
@@ -103,9 +104,9 @@
     .hero {
       position: relative;
       overflow: hidden;
-      border-bottom: 7px solid var(--red);
-      background: var(--ink);
-      color: var(--paper);
+      border-bottom: 7px solid var(--ink);
+      background: var(--red-hero);
+      color: var(--paper-light);
       padding: clamp(18px, 3vw, 28px) max(20px, calc((100vw - 1100px) / 2)) clamp(24px, 4vw, 42px);
     }
 
@@ -128,7 +129,7 @@
       font-family: var(--display);
       font-size: clamp(9rem, 30vw, 22rem);
       line-height: 1;
-      -webkit-text-stroke: 2px rgba(237, 234, 224, 0.13);
+      -webkit-text-stroke: 2px rgba(255, 253, 247, 0.2);
       pointer-events: none;
     }
 
@@ -173,7 +174,7 @@
 
     .hero-school {
       margin: 0;
-      color: var(--yellow);
+      color: var(--paper-light);
       font-family: var(--mono);
       font-size: 0.7rem;
       font-weight: 900;
@@ -187,10 +188,10 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      border: 3px solid var(--paper);
+      border: 3px solid var(--ink);
       background: var(--yellow);
       color: var(--ink);
-      box-shadow: 4px 4px 0 var(--red);
+      box-shadow: 4px 4px 0 var(--ink);
       padding: 7px 10px;
       font-family: var(--mono);
       font-size: 0.62rem;
@@ -206,7 +207,7 @@
       width: 8px;
       height: 8px;
       border: 2px solid var(--ink);
-      background: var(--red);
+      background: var(--red-hero);
     }
 
     .logo-badge {
@@ -218,7 +219,7 @@
       transform: rotate(-4deg);
       border: 4px solid var(--paper);
       background: var(--paper);
-      box-shadow: 6px 6px 0 var(--red);
+      box-shadow: 6px 6px 0 var(--ink);
       padding: 5px;
     }
 
@@ -232,8 +233,8 @@
     .eyebrow {
       display: inline-block;
       margin: 0 0 10px;
-      background: var(--red);
-      color: white;
+      background: var(--ink);
+      color: var(--paper-light);
       padding: 5px 9px;
       font-family: var(--mono);
       font-size: 0.7rem;
@@ -257,7 +258,7 @@
 
     .hero-signature {
       margin: 16px 0 0;
-      color: var(--yellow);
+      color: var(--paper-light);
       font-family: var(--display);
       font-size: clamp(1.25rem, 3vw, 2rem);
       letter-spacing: 0.03em;
@@ -267,10 +268,10 @@
     .hero-story {
       max-width: none;
       margin: 0;
-      border: 4px solid var(--red);
+      border: 4px solid var(--ink);
       background: var(--paper);
       color: var(--ink);
-      box-shadow: 7px 7px 0 var(--red);
+      box-shadow: 7px 7px 0 var(--ink);
       padding: 14px 17px;
       font-size: clamp(0.93rem, 2vw, 1.05rem);
       font-weight: 700;
@@ -288,7 +289,7 @@
       border: 2px solid var(--ink);
       background: var(--paper-light);
       color: var(--ink);
-      box-shadow: 3px 3px 0 var(--red);
+      box-shadow: 3px 3px 0 var(--ink);
       padding: 5px 8px 4px;
       font-family: var(--mono);
       font-size: 0.61rem;
@@ -318,7 +319,7 @@
 
     .stat-number {
       display: block;
-      color: var(--red);
+      color: var(--yellow);
       font-family: var(--display);
       font-size: 1.7rem;
       line-height: 1;
@@ -340,10 +341,10 @@
       align-items: center;
       gap: 10px;
       margin-top: 18px;
-      border: 3px solid var(--paper);
+      border: 3px solid var(--ink);
       background: var(--yellow);
       color: var(--ink);
-      box-shadow: 5px 5px 0 var(--red);
+      box-shadow: 5px 5px 0 var(--ink);
       padding: 10px 14px;
       font-family: var(--display);
       font-size: 0.75rem;
@@ -353,7 +354,7 @@
       text-transform: uppercase;
     }
 
-    .hero-cta:hover { background: var(--paper); }
+    .hero-cta:hover { background: var(--paper-light); }
 
     .section-title {
       display: flex;
@@ -387,7 +388,7 @@
       top: 0;
       z-index: 20;
       border-block: 4px solid var(--ink);
-      background: rgba(237, 234, 224, 0.97);
+      background: var(--paper);
       box-shadow: 0 5px 0 rgba(17, 17, 17, 0.15);
       padding: 12px max(16px, calc((100vw - 1100px) / 2));
     }
@@ -455,13 +456,17 @@
     }
 
     main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 24px 16px 64px;
+      width: 100%;
+      margin: 0;
+      border-block: 7px solid var(--ink);
+      background: var(--red-hero);
+      padding: 24px max(16px, calc((100vw - 1100px) / 2)) 64px;
     }
 
     .grid {
       display: grid;
+      max-width: 1100px;
+      margin: 0 auto;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 27px;
     }
@@ -522,7 +527,7 @@
 
     .photo-wrap {
       position: relative;
-      flex: 1;
+      flex: 0 0 68%;
       min-height: 0;
       overflow: hidden;
       border-bottom: 4px solid var(--ink);
@@ -534,6 +539,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 35%;
     }
 
     .category-bar {
@@ -557,6 +563,13 @@
       text-transform: uppercase;
     }
 
+    .card-front .card-info {
+      display: flex;
+      min-height: 0;
+      flex: 1 1 auto;
+      flex-direction: column;
+    }
+
     .card-info { padding: 11px 13px 13px; }
 
     .person-name {
@@ -575,7 +588,7 @@
     }
 
     .card-hint {
-      margin: 7px 0 0;
+      margin: auto 0 0;
       color: var(--red);
       font-family: var(--mono);
       font-size: 0.65rem;
@@ -659,7 +672,7 @@
     }
 
     @media (hover: hover) and (pointer: fine) {
-      .card-slot:hover .card-face { box-shadow: 13px 13px 0 var(--red); }
+      .card-slot:hover .card-face { box-shadow: 13px 13px 0 var(--ink); }
       .card-slot:hover .card-visual { transform: translate(-4px, -4px); }
       .card-slot.is-flipped:hover .card-visual { transform: rotateY(180deg) translate(4px, -4px); }
     }
@@ -712,7 +725,7 @@
         width: 48px;
         height: 48px;
         border-width: 3px;
-        box-shadow: 4px 4px 0 var(--red);
+        box-shadow: 4px 4px 0 var(--ink);
         padding: 4px;
       }
 
@@ -729,7 +742,7 @@
       }
 
       .hero-story {
-        box-shadow: 5px 5px 0 var(--red);
+        box-shadow: 5px 5px 0 var(--ink);
         padding: 11px 13px;
         font-size: 0.88rem;
         line-height: 1.4;
@@ -809,6 +822,8 @@
 
       .card-slot { aspect-ratio: 3 / 5.65; }
 
+      .card-front .photo-wrap { flex-basis: 60%; }
+
       .card-face {
         border-width: 3px;
         box-shadow: 6px 6px 0 var(--ink);
@@ -838,7 +853,7 @@
       }
 
       .card-hint {
-        margin-top: 6px;
+        margin-top: auto;
         font-size: 0.57rem;
       }
 

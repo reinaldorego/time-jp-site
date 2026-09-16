@@ -59,6 +59,6 @@ Categorias existentes: `professores`, `coordenacao`, `direcao`, `educacao_especi
 
 ## Direção visual desta versão
 
-O topo recebeu uma composição editorial inspirada em páginas de desafio criativo: título em grande escala, hierarquia tipográfica por níveis, selo de acervo, textura pontilhada e princípios do TIME JP em destaque. A identidade brutalista foi preservada com papel quadriculado, bordas espessas, sombras sólidas e cards quadrados.
+O topo recebeu uma composição editorial inspirada em páginas de desafio criativo: faixa vermelha de alto contraste, título em grande escala, hierarquia tipográfica por níveis, selo de acervo, textura pontilhada e princípios do TIME JP em destaque. A galeria usa um palco vermelho contínuo, enquanto o menu de filtros permanece em cinza. A identidade brutalista foi preservada com papel quadriculado, bordas espessas, sombras sólidas, cards quadrados e enquadramento padronizado para os retratos.
 
 O projeto usa apenas HTML, CSS e JavaScript, sem bibliotecas ou processo de compilação. As fontes `Baloo 2`, `Inter Tight` e `JetBrains Mono` são carregadas do Google Fonts quando há conexão; em modo offline entram as fontes de reserva do sistema sem comprometer a navegação.
