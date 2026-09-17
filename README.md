@@ -7,7 +7,7 @@ Site público, responsivo e instalável para valorizar os profissionais da Escol
 
 ## Estado desta versão
 
-Esta entrega é uma **versão de homologação interna**. As 48 ilustrações individuais recebidas, organizadas por departamento em `img/equipe/`, já estão ligadas às fichas da galeria. Uma imagem de montagem foi mantida fora da galeria por não representar um único personagem. Antes de publicar, faça a conferência final com cada pessoa retratada e valide nome, função, departamento, setor, frase e imagem.
+Esta entrega é uma **versão de homologação interna**. Os 51 cartoons individuais recebidos estão organizados por departamento em `img/equipe/` e ligados às fichas da galeria. Antes da publicação definitiva, faça a conferência final com cada pessoa retratada e valide nome, função, departamento, setor, frase e imagem.
 
 Antes da publicação oficial:
 
@@ -42,12 +42,12 @@ Edite o array `EQUIPE` em `data.js`. Cada ficha segue esta estrutura:
   setor: "Setor ou atuação autorizada",
   contribuicao: "Força que move a escola",
   frase: "Frase aprovada",
-  foto: "img/nome-do-arquivo.jpg",
+  foto: "img/equipe/area/nome-do-arquivo.png",
   textoAlternativo: "Descrição objetiva da ilustração"
 }
 ```
 
-Categorias existentes: `professores`, `coordenacao`, `direcao`, `educacao_especial`, `copa`, `apoio`, `secretaria` e `outros`.
+Categorias existentes: `professores`, `coordenacao`, `direcao`, `educacao_especial`, `educacao_infantil`, `apoio`, `secretaria` e `psicologia`.
 
 ## Estrutura
 
@@ -55,10 +55,11 @@ Categorias existentes: `professores`, `coordenacao`, `direcao`, `educacao_especi
 - `data.js`: textos institucionais, categorias e fichas.
 - `manifest.json`: instalação do site como aplicativo.
 - `sw.js`: funcionamento offline.
-- `img/`: logo, imagens legadas de referência e os cartoons organizados em `img/equipe/` por departamento.
+- `img/`: logo e os cartoons organizados em `img/equipe/` por departamento.
+- `favicon.svg`, `favicon-32.png`, `icon-192.png` e `icon-512.png`: identidade visual usada no navegador e na instalação como aplicativo.
 
 ## Direção visual desta versão
 
-O topo recebeu uma composição editorial inspirada em páginas de desafio criativo: faixa vermelha de alto contraste, título em grande escala, hierarquia tipográfica por níveis, selo de acervo, textura pontilhada e princípios do TIME JP em destaque. A galeria usa um palco vermelho contínuo, enquanto o menu de filtros permanece em cinza. A identidade brutalista foi preservada com papel quadriculado, bordas espessas, sombras sólidas, cards quadrados e enquadramento padronizado para os retratos.
+O topo usa fundo preto, textura pontilhada laranja, slogan em branco e divisória laranja. O título principal usa tipografia cartoon de alto contraste, branca com contorno escuro e sombra laranja. A galeria mantém o palco vermelho contínuo, enquanto o menu de filtros permanece em cinza. O botão flutuante com o cartoon do Prof. Reinaldo exibe `ADS / 2026`: leva ao rodapé e, quando ele está visível, retorna ao topo. A identidade brutalista foi preservada com papel quadriculado, bordas espessas, sombras sólidas, cards quadrados e enquadramento padronizado para os retratos.
 
-O projeto usa apenas HTML, CSS e JavaScript, sem bibliotecas ou processo de compilação. As fontes `Baloo 2`, `Inter Tight` e `JetBrains Mono` são carregadas do Google Fonts quando há conexão; em modo offline entram as fontes de reserva do sistema sem comprometer a navegação.
+O projeto usa apenas HTML, CSS e JavaScript, sem bibliotecas ou processo de compilação. As fontes `Bowlby One SC`, `Baloo 2`, `Inter Tight` e `JetBrains Mono` são carregadas do Google Fonts quando há conexão; em modo offline entram as fontes de reserva do sistema sem comprometer a navegação.

@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="TIME JP — uma homenagem aos profissionais que fazem a Escola Jarbas Passarinho acontecer.">
-  <meta name="theme-color" content="#e42320">
+  <meta name="theme-color" content="#111111">
   <title>TIME JP — Heróis que fazem a escola acontecer</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="icon-192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="apple-touch-icon" href="icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Bowlby+One+SC&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --paper: #edeae0;
@@ -19,11 +19,13 @@
       --ink: #111111;
       --red: #e63946;
       --red-hero: #e42320;
+      --orange: #ff8f1f;
       --blue: #1d3557;
       --yellow: #f4a300;
       --muted: #555555;
       --shadow: 8px 8px 0 var(--ink);
       --display: "Baloo 2", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      --comic-display: "Bowlby One SC", "Baloo 2", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
       --body: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       --mono: "JetBrains Mono", "Courier New", monospace;
     }
@@ -86,9 +88,9 @@
 
     .demo-banner {
       display: none;
-      border-bottom: 4px solid var(--ink);
-      background-color: var(--red-hero);
-      background-image: radial-gradient(rgba(17, 17, 17, 0.72) 1.25px, transparent 1.5px);
+      border-bottom: 4px solid var(--orange);
+      background-color: var(--ink);
+      background-image: radial-gradient(rgba(255, 143, 31, 0.58) 1.15px, transparent 1.4px);
       background-size: 16px 16px;
       color: var(--paper-light);
       padding: 9px 16px;
@@ -106,8 +108,8 @@
     .hero {
       position: relative;
       overflow: hidden;
-      border-bottom: 7px solid var(--ink);
-      background: var(--red-hero);
+      border-bottom: 7px solid var(--orange);
+      background: var(--ink);
       color: var(--paper-light);
       padding: clamp(18px, 3vw, 28px) max(20px, calc((100vw - 1100px) / 2)) clamp(24px, 4vw, 42px);
     }
@@ -116,7 +118,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(rgba(17, 17, 17, 0.72) 1.25px, transparent 1.5px);
+      background-image: radial-gradient(rgba(255, 143, 31, 0.5) 1.15px, transparent 1.4px);
       background-size: 16px 16px;
       opacity: 0.55;
       pointer-events: none;
@@ -131,7 +133,7 @@
       font-family: var(--display);
       font-size: clamp(9rem, 30vw, 22rem);
       line-height: 1;
-      -webkit-text-stroke: 2px rgba(255, 253, 247, 0.2);
+      -webkit-text-stroke: 2px rgba(255, 143, 31, 0.22);
       pointer-events: none;
     }
 
@@ -181,7 +183,7 @@
       margin: 0;
       border: 3px solid var(--ink);
       border-radius: 999px;
-      background: var(--yellow);
+      background: var(--orange);
       color: var(--ink);
       box-shadow: 4px 4px 0 var(--ink);
       padding: 8px 12px 7px;
@@ -260,7 +262,8 @@
     .eyebrow {
       display: inline-block;
       margin: 0 0 10px;
-      background: var(--ink);
+      border: 2px solid var(--paper-light);
+      background: var(--red);
       color: var(--paper-light);
       padding: 5px 9px;
       font-family: var(--mono);
@@ -273,16 +276,39 @@
     .hero-title {
       max-width: 10ch;
       margin: 0;
-      font-family: var(--display);
+      color: var(--paper-light);
+      font-family: var(--comic-display);
       font-size: clamp(3rem, 9vw, 7.4rem);
-      font-weight: 900;
-      letter-spacing: -0.01em;
+      font-weight: 400;
+      letter-spacing: 0.01em;
       line-height: 0.88;
       overflow-wrap: anywhere;
-      text-shadow: 3px 3px 0 var(--ink);
+      text-shadow: 4px 4px 0 var(--orange), 7px 7px 0 rgba(0, 0, 0, 0.72);
       text-transform: uppercase;
       text-wrap: balance;
       -webkit-text-stroke: 2px var(--ink);
+    }
+
+    .hero-slogan {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto 11px;
+      color: var(--paper-light);
+      font-size: clamp(1rem, 2.3vw, 1.35rem);
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      line-height: 1.25;
+    }
+
+    .hero-divider {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 1100px);
+      height: 5px;
+      margin: 0 auto clamp(20px, 3vw, 30px);
+      background: var(--orange);
+      box-shadow: 4px 4px 0 var(--red);
     }
 
     .hero-signature {
@@ -688,47 +714,63 @@
     .empty-state[hidden] { display: none; }
 
     .author-float {
+      appearance: none;
       position: fixed;
       right: 18px;
       bottom: 18px;
       z-index: 30;
-      display: block;
-      width: 62px;
-      height: 62px;
-      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 62px;
       border: 4px solid var(--ink);
-      border-radius: 50%;
-      background: var(--yellow);
+      border-radius: 999px;
+      background: var(--paper-light);
       box-shadow: 6px 6px 0 var(--ink);
-      transform: rotate(3deg);
+      color: var(--ink);
+      cursor: pointer;
+      padding: 4px 10px 4px 4px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .author-float:hover {
       box-shadow: 3px 3px 0 var(--ink);
-      transform: translate(3px, 3px) rotate(3deg);
+      transform: translate(3px, 3px);
     }
 
     .author-float img {
       display: block;
-      width: 100%;
-      height: 100%;
+      width: 50px;
+      height: 50px;
+      flex: 0 0 50px;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
       object-fit: cover;
       object-position: center 35%;
     }
 
-    .author-float span {
-      position: absolute;
-      right: -1px;
-      bottom: -1px;
-      border: 2px solid var(--ink);
-      background: var(--red-hero);
-      color: var(--paper-light);
-      padding: 2px 4px 1px;
+    .author-float-label,
+    .author-float-arrow {
       font-family: var(--mono);
-      font-size: 0.5rem;
-      font-weight: 700;
+      font-weight: 900;
       line-height: 1;
+    }
+
+    .author-float-label {
+      font-size: 0.64rem;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    .author-float-arrow {
+      display: grid;
+      width: 18px;
+      height: 18px;
+      place-items: center;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: var(--orange);
+      font-size: 0.72rem;
     }
 
     footer {
@@ -824,6 +866,17 @@
         line-height: 0.88;
       }
 
+      .hero-slogan {
+        margin-bottom: 9px;
+        font-size: 0.92rem;
+      }
+
+      .hero-divider {
+        height: 4px;
+        margin-bottom: 18px;
+        box-shadow: 3px 3px 0 var(--red);
+      }
+
       .hero-signature {
         margin-top: 13px;
         box-shadow: 4px 4px 0 var(--ink);
@@ -851,11 +904,21 @@
       .author-float {
         right: 13px;
         bottom: 13px;
-        width: 54px;
-        height: 54px;
         border-width: 3px;
+        min-height: 52px;
         box-shadow: 4px 4px 0 var(--ink);
+        gap: 6px;
+        padding: 3px 8px 3px 3px;
       }
+
+      .author-float img {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+      }
+
+      .author-float-label { font-size: 0.53rem; }
+      .author-float-arrow { width: 16px; height: 16px; font-size: 0.62rem; }
 
       .hero-stats {
         gap: 8px;
@@ -1029,6 +1092,8 @@
         </div>
       </div>
     </div>
+    <p class="hero-slogan" id="hero-slogan"></p>
+    <div class="hero-divider" aria-hidden="true"></div>
     <div class="hero-content">
       <div class="hero-copy">
         <p class="eyebrow">TIME JP</p>
@@ -1080,14 +1145,16 @@
     </p>
   </main>
 
-  <a
+  <button
     class="author-float"
-    href="#rodape"
+    id="author-float"
+    type="button"
     aria-label="Ir ao rodapé: projeto construído pelo Prof. Reinaldo Rêgo"
   >
-    <img src="img/equipe/professores/Prof. Reinaldo - Matemática.jpg" alt="">
-    <span aria-hidden="true">NR</span>
-  </a>
+    <img src="img/equipe/professores/Prof. Reinaldo - Matemática.png" alt="">
+    <span class="author-float-label" aria-hidden="true">ADS / 2026</span>
+    <span class="author-float-arrow" id="author-float-arrow" aria-hidden="true">↓</span>
+  </button>
 
   <footer id="rodape">
     <p>Selecione uma ficha para conhecer a contribuição de cada profissional.</p>
@@ -1106,6 +1173,9 @@
       emptyState: document.getElementById("empty-state"),
       resultCount: document.getElementById("result-count"),
       demoBanner: document.getElementById("demo-banner"),
+      authorFloat: document.getElementById("author-float"),
+      authorFloatArrow: document.getElementById("author-float-arrow"),
+      footer: document.getElementById("rodape"),
     };
 
     const state = {
@@ -1128,6 +1198,10 @@
       return categoryById(id)?.cor || "#111111";
     }
 
+    function categoryTextColor(id) {
+      return categoryById(id)?.texto || "#FFFFFF";
+    }
+
     function categoryName(id) {
       return categoryById(id)?.nome || String(id).toUpperCase();
     }
@@ -1141,6 +1215,7 @@
 
     function renderHero() {
       document.getElementById("hero-school").textContent = ESCOLA_INFO.nomeEscola;
+      document.getElementById("hero-slogan").textContent = ESCOLA_INFO.mensagemTopo;
       document.getElementById("hero-title").textContent = ESCOLA_INFO.chamada;
       document.getElementById("hero-signature").textContent = ESCOLA_INFO.assinatura;
       document.getElementById("hero-story").textContent = ESCOLA_INFO.historia;
@@ -1209,7 +1284,7 @@
 
       const categoryTag = createElement("span", "category-tag", categoryName(person.categoria));
       categoryTag.style.backgroundColor = categoryColor(person.categoria);
-      categoryTag.style.color = person.categoria === "copa" ? "var(--ink)" : "white";
+      categoryTag.style.color = categoryTextColor(person.categoria);
       categoryBar.appendChild(categoryTag);
       photoWrap.appendChild(image);
 
@@ -1292,9 +1367,37 @@
       renderGrid();
     });
 
+    function footerIsVisible() {
+      return elements.footer.getBoundingClientRect().top <= window.innerHeight - 40;
+    }
+
+    function updateAuthorFloat() {
+      const noRodape = footerIsVisible();
+      elements.authorFloatArrow.textContent = noRodape ? "↑" : "↓";
+      elements.authorFloat.setAttribute(
+        "aria-label",
+        noRodape
+          ? "Voltar ao topo da página"
+          : "Ir ao rodapé: projeto construído pelo Prof. Reinaldo Rêgo"
+      );
+      elements.authorFloat.title = noRodape ? "Voltar ao topo" : "Ver autoria do projeto";
+    }
+
+    elements.authorFloat.addEventListener("click", () => {
+      if (footerIsVisible()) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        elements.footer.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+
+    window.addEventListener("scroll", updateAuthorFloat, { passive: true });
+    window.addEventListener("resize", updateAuthorFloat);
+
     renderHero();
     renderFilters();
     renderGrid();
+    updateAuthorFloat();
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
