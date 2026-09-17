@@ -1,4 +1,4 @@
-const CACHE_NAME = "time-jp-v9-20260916";
+const CACHE_NAME = "time-jp-v10-20260917";
 const ARQUIVOS_ESSENCIAIS = [
   "./",
   "./index.html",

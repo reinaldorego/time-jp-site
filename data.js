@@ -20,7 +20,7 @@
 
 const SITE_CONFIG = {
   modoDemonstracao: true,
-  ultimaAtualizacao: "16/09/2026",
+  ultimaAtualizacao: "17/09/2026",
 };
 
 const ESCOLA_INFO = {
