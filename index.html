@@ -86,8 +86,8 @@
       border: 0;
     }
 
-    .demo-banner {
-      display: none;
+    .site-topline {
+      display: block;
       border-bottom: 4px solid var(--orange);
       background-color: var(--ink);
       background-image: radial-gradient(rgba(255, 143, 31, 0.58) 1.15px, transparent 1.4px);
@@ -100,16 +100,14 @@
       font-weight: 900;
       letter-spacing: 0.05em;
       line-height: 1.25;
-      text-transform: uppercase;
+      text-transform: none;
     }
-
-    .demo-banner.is-visible { display: block; }
 
     .hero {
       position: relative;
       overflow: hidden;
       border-bottom: 7px solid var(--orange);
-      background: var(--ink);
+      background: var(--red-hero);
       color: var(--paper-light);
       padding: clamp(18px, 3vw, 28px) max(20px, calc((100vw - 1100px) / 2)) clamp(24px, 4vw, 42px);
     }
@@ -118,9 +116,9 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(rgba(255, 143, 31, 0.5) 1.15px, transparent 1.4px);
+      background-image: radial-gradient(rgba(17, 17, 17, 0.5) 1.15px, transparent 1.4px);
       background-size: 16px 16px;
-      opacity: 0.55;
+      opacity: 0.68;
       pointer-events: none;
     }
 
@@ -133,7 +131,7 @@
       font-family: var(--display);
       font-size: clamp(9rem, 30vw, 22rem);
       line-height: 1;
-      -webkit-text-stroke: 2px rgba(255, 143, 31, 0.22);
+      -webkit-text-stroke: 2px rgba(17, 17, 17, 0.25);
       pointer-events: none;
     }
 
@@ -274,15 +272,17 @@
     }
 
     .hero-title {
-      max-width: 10ch;
+      max-width: min(100%, 620px);
       margin: 0;
       color: var(--paper-light);
       font-family: var(--comic-display);
-      font-size: clamp(3rem, 9vw, 7.4rem);
+      font-size: clamp(2.9rem, 6.3vw, 5.85rem);
       font-weight: 400;
       letter-spacing: 0.01em;
-      line-height: 0.88;
-      overflow-wrap: anywhere;
+      line-height: 0.9;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
       text-shadow: 4px 4px 0 var(--orange), 7px 7px 0 rgba(0, 0, 0, 0.72);
       text-transform: uppercase;
       text-wrap: balance;
@@ -815,7 +815,7 @@
         gap: 18px;
       }
 
-      .hero-title { max-width: 9ch; }
+      .hero-title { max-width: 100%; }
     }
 
     @media (max-width: 700px) {
@@ -825,7 +825,7 @@
     @media (max-width: 520px) {
       .search-row { grid-template-columns: 1fr; }
       .result-count { text-align: left; }
-      .demo-banner {
+      .site-topline {
         padding: 8px 12px;
         font-size: 0.66rem;
       }
@@ -861,9 +861,9 @@
 
       .hero-content { gap: 14px; }
       .hero-title {
-        max-width: 9ch;
-        font-size: clamp(3rem, 14vw, 5.4rem);
-        line-height: 0.88;
+        max-width: 100%;
+        font-size: clamp(2.65rem, 11.2vw, 4.35rem);
+        line-height: 0.9;
       }
 
       .hero-slogan {
@@ -1078,8 +1078,8 @@
 <body>
   <a class="skip-link" href="#conteudo">Pular para as fichas</a>
 
-  <aside class="demo-banner" id="demo-banner" aria-label="Aviso de homologação">
-    Homologação interna — imagens autorizadas; valide cada ficha antes da publicação
+  <aside class="site-topline" id="site-topline" aria-label="Mensagem institucional">
+    O conhecimento que transforma o seu presente e constrói o seu amanhã.
   </aside>
 
   <header class="hero">
@@ -1092,7 +1092,6 @@
         </div>
       </div>
     </div>
-    <p class="hero-slogan" id="hero-slogan"></p>
     <div class="hero-divider" aria-hidden="true"></div>
     <div class="hero-content">
       <div class="hero-copy">
@@ -1172,7 +1171,7 @@
       search: document.getElementById("search"),
       emptyState: document.getElementById("empty-state"),
       resultCount: document.getElementById("result-count"),
-      demoBanner: document.getElementById("demo-banner"),
+      siteTopline: document.getElementById("site-topline"),
       authorFloat: document.getElementById("author-float"),
       authorFloatArrow: document.getElementById("author-float-arrow"),
       footer: document.getElementById("rodape"),
@@ -1215,15 +1214,13 @@
 
     function renderHero() {
       document.getElementById("hero-school").textContent = ESCOLA_INFO.nomeEscola;
-      document.getElementById("hero-slogan").textContent = ESCOLA_INFO.mensagemTopo;
+      elements.siteTopline.textContent = ESCOLA_INFO.mensagemTopo;
       document.getElementById("hero-title").textContent = ESCOLA_INFO.chamada;
       document.getElementById("hero-signature").textContent = ESCOLA_INFO.assinatura;
       document.getElementById("hero-story").textContent = ESCOLA_INFO.historia;
       document.getElementById("hero-status-count").textContent = EQUIPE.length + " retratos";
       document.getElementById("last-update").textContent =
         "Homologação atualizada em " + SITE_CONFIG.ultimaAtualizacao + ".";
-
-      elements.demoBanner.classList.toggle("is-visible", SITE_CONFIG.modoDemonstracao);
 
       const stats = document.getElementById("hero-stats");
       stats.replaceChildren();
